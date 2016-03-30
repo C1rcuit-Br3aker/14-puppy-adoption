@@ -1,43 +1,21 @@
 'use strict';
+import PuppyView from 'puppy-view';
 
 export default class ApplicationView {
-  constructor(el) {
-    this.el = el;
-
-    this.getPuppy();
-  }
-
-  getPuppy() {
+  constructor() {
     fetch(`http://tiny-tn.herokuapp.com/collections/ryan-puppy`).
-      then(res => res.json()).
-      then(data => {
-        const app = document.querySelector(`.form`);
-        const application = new ApplicationView(app, data);
-        this.render();
-      });
+    then(res => res.json).
+    then(data => {
+      const makePuppy = new CreateFormView;
+      document.querySelector(`.form`).appendChild(makePuppy);
+      this.render();
+    });
   }
 
   render() {
-    this.el.innerHTML = `
-    <ul class="form-info"
-      <li class="puppy-form-info">
-        <h4>Puppy Name</h4>
-        <input type="text" class="">
-      </li>
-      <li class="puppy-form-info">
-        <h4>Age</h4>
-        <input type="text" class="">
-      </li>
-      <li class="puppy-form-info">
-        <h4>Profile URL</h4>
-        <input type="text" class="".
-      </li>
-      <li class="puppy-form-info">
-        <h4>Profile</h4>
-        <input type="text" class="">
-      </li>
-      </ul>
-      <button class="save">Save</button>
-    `;
+    const clear = document.querySelector(`.card`);
+    clear.innerHTML = ``;
+    const puppy = new PuppyView;
+    clear.appendChild(puppy);
   }
 }
