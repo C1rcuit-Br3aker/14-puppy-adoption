@@ -15,7 +15,6 @@ export default class ApplicationView {
     then((data) => {
       const card = document.querySelector('.card')
       const newPuppy = new CreateFormView(card, data);
-      debugger;
       // this.render();
     });
   }

@@ -13,13 +13,12 @@ export default class CreateFormView {
     fetch(`http://tiny-tn.herokuapp.com/collections/ryan-puppy`).
     then(res => res.json()).
     then(data => {
-      this.addPuppy(data);
+      this.addPuppy(data[0]);
     });
   }
 
   addPuppy(data) {
-    this.data.forEach((item) => {
-      this.el.item.innerHTML = `
+      this.el.innerHTML = `
       <div class="profile-image">
       <img src="${data.photoUrl}"</div>
       <div class="profile-card">
@@ -41,8 +40,5 @@ export default class CreateFormView {
       <button class="update">Update</button>
       </div>
       `;
-
-    })
-
     };
   }
