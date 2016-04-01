@@ -13,9 +13,9 @@ export default class ApplicationView {
     fetch(`http://tiny-tn.herokuapp.com/collections/ryan-puppy`).
     then((res) => res.json()).
     then((data) => {
-      const card = document.querySelector('.card')
-      const newPuppy = new CreateFormView(card, data);
-      // this.render();
+      const dogs = document.querySelector('.card')
+      const newPuppy = new PuppyView(dogs, data);
+      this.render(dogs, data);
     });
   }
 
@@ -23,12 +23,12 @@ export default class ApplicationView {
 
   }
 
-  render() {
-    const clear = document.querySelector(`.card`);
-    clear.innerHTML = ``;
-    this.data.forEach(() => {
-      const dog = new PuppyView;
-      clear.appendChild(dog);
+  render(dogs, data) {
+    debugger;
+    dogs.innerHTML = ``;
+    data.forEach(() => {
+      const dog = new PuppyView(dogs, data);
+      dogs.appendChild(dog);
     });
   }
 }

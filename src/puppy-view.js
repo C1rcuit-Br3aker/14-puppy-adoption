@@ -27,26 +27,29 @@ export default class PuppyView {
   }
 
   render() {
-    this.el.innerHTML = `
-    <ul class="form-info"
+    this.dog.forEach((mutt) => {
+      const thing = document.querySelector(`.card`);
+      thing.innerHTML = `
+      <ul class="form-info"
       <li class="puppy-form-info">
-        <h4>Puppy Name</h4>
-        <input type="text" class="">
+      <h4>Puppy Name</h4>
+      <input type="text" class="">
       </li>
       <li class="puppy-form-info">
-        <h4>Age</h4>
-        <input type="text" class="">
+      <h4>Age</h4>
+      <input type="text" class="">
       </li>
       <li class="puppy-form-info">
-        <h4>Profile URL</h4>
-        <input type="text" class="".
+      <h4>Profile URL</h4>
+      <input type="text" class="".
       </li>
       <li class="puppy-form-info">
-        <h4>Profile</h4>
-        <input type="text" class="">
+      <h4>Profile</h4>
+      <input type="text" class="">
       </li>
       </ul>
       <button class="save">Save</button>
-    `;
+      `;
+    });
   }
 }
