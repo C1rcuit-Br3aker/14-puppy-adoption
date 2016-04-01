@@ -19,26 +19,25 @@ export default class CreateFormView {
 
   addPuppy(data) {
       this.el.innerHTML = `
-      <div class="profile-image">
-      <img src="${data.photoUrl}"</div>
-      <div class="profile-card">
-      <ul class="card-info">
-      <li class="puppy-card-info">
-      <h4 class="puppy-info">${data.name}</h4>
+      <ul class="form-info"
+      <li class="puppy-form-info">
+      <h4>Puppy Name</h4>
+      <input type="text" class="">
       </li>
-      <li class="puppy-card-info">
-      <h4 class="puppy-info">${data.age}</h4>
+      <li class="puppy-form-info">
+      <h4>Age</h4>
+      <input type="text" class="">
       </li>
-      <li class="puppy-card-info">
-      <h4 class="puppy-info">${data.photoUrl}</h4>
+      <li class="puppy-form-info">
+      <h4>Profile URL</h4>
+      <input type="text" class="".
       </li>
-      <li class="puppy-card-info">
-      <h4 class="puppy-info">${data.profile}</h4>
+      <li class="puppy-form-info">
+      <h4>Profile</h4>
+      <input type="text" class="">
       </li>
       </ul>
-      <button class="delete">Delete</button>
-      <button class="update">Update</button>
-      </div>
+      <button class="save">Save</button>
       `;
     };
   }

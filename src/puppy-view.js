@@ -3,9 +3,10 @@ import ApplicationView from 'application-view';
 
 export default class PuppyView {
   constructor(el, dog) {
+    debugger;
     this.el = el;
     this.dog = dog;
-    this.render();
+    this.render(el, dog);
     this.listenForClick();
   }
 
@@ -26,29 +27,30 @@ export default class PuppyView {
       });
   }
 
-  render() {
+  render(el, dog) {
     this.dog.forEach((mutt) => {
       const thing = document.querySelector(`.card`);
       thing.innerHTML = `
-      <ul class="form-info"
-      <li class="puppy-form-info">
-      <h4>Puppy Name</h4>
-      <input type="text" class="">
+      <div class="profile-image">
+      <img src="${mutt.photoUrl}"</div>
+      <div class="profile-card">
+      <ul class="card-info">
+      <li class="puppy-card-info">
+      <h4 class="puppy-info">${mutt.name}</h4>
       </li>
-      <li class="puppy-form-info">
-      <h4>Age</h4>
-      <input type="text" class="">
+      <li class="puppy-card-info">
+      <h4 class="puppy-info">${mutt.age}</h4>
       </li>
-      <li class="puppy-form-info">
-      <h4>Profile URL</h4>
-      <input type="text" class="".
+      <li class="puppy-card-info">
+      <h4 class="puppy-info">${mutt.photoUrl}</h4>
       </li>
-      <li class="puppy-form-info">
-      <h4>Profile</h4>
-      <input type="text" class="">
+      <li class="puppy-card-info">
+      <h4 class="puppy-info">${mutt.profile}</h4>
       </li>
       </ul>
-      <button class="save">Save</button>
+      <button class="delete">Delete</button>
+      <button class="update">Update</button>
+      </div>
       `;
     });
   }
