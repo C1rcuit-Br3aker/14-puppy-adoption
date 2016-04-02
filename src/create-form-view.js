@@ -1,8 +1,33 @@
 'use strict';
-import ApplicationView from 'application-view';
 
 export default class CreateFormView {
-  constructor() {
-  }
+  constructor(data, application) {
+    this.data = data;
+    this.application = application;
 
+    document.querySelector(`.save`).addEventListener(`click`, (ev) => {
+      ev.preventDefault();
+      const formData = {
+        name: document.querySelector(`.new-puppy-name`).value,
+        age: document.querySelector(`.new-puppy-age`).value,
+        photoUrl: document.querySelector(`.new-puppy-pic`).value,
+        profile: document.querySelector(`.new-puppy-info`).value,
+      };
+      fetch(`http://tiny-tn.herokuapp.com/collections/cb-puppies`, {
+        method: `POST`,
+        headers: {
+          Accept: `application/json`,
+        },
+        body: JSON.stringify(formData),
+      }).then(res => res.json())
+      .then((info) => {
+        document.querySelector(`.new-puppy-name`).value = ``;
+        document.querySelector(`.new-puppy-age`).value = ``;
+        document.querySelector(`.new-puppy-pic`).value = ``;
+        document.querySelector(`.new-puppy-info`).value = ``;
+
+        this.application.add(info);
+      });
+    });
   }
+}

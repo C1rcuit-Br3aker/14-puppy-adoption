@@ -1,0 +1,29 @@
+img {
+  width: 20rem;
+  height: 20rem;
+}
+
+ul {
+  max-width: $max-content-width;
+  list-style: none;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  background: $brand-orange;
+  color: $brand-white;
+  cursor: pointer;
+}
+
+li {
+  border-bottom: 1px solid $brand-dark-grey;
+}
+
+input {
+  height: 2rem;
+  border: 0;
+  outline: 0;
+  background: inherit;
+  font-size: 1.5rem;
+}

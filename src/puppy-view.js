@@ -54,6 +54,7 @@ export default class PuppyView {
   }
 
   render() {
+    this.el.classList.add(`.main-content`);
     this.el.innerHTML = `
       <div class="profile-image">
         <img src="${this.puppy.photoUrl}">

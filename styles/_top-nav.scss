@@ -1,0 +1,22 @@
+.top-nav {
+  background: $brand-orange;
+}
+
+.top-nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: $max-content-width;
+  margin: auto;
+  color: $brand-white;
+}
+
+.form-title {
+  flex-grow: 1;
+  margin: 0.5rem 0;
+  padding-left: 0.5rem;
+}
+
+.dropdown-button {
+  height: 1.5rem;
+}
