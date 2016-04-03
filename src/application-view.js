@@ -11,7 +11,7 @@ export default class ApplicationView {
 
     fetch(`http://tiny-tn.herokuapp.com/collections/cb-puppies`).
     then((res) => res.json()).
-    then((info) => { debugger;
+    then((info) => {
       info.forEach((mutt) => {
         const newPuppy = new PuppyView(mutt);
         const dogs = document.querySelector(`.card`);

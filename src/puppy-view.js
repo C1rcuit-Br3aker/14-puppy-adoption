@@ -1,8 +1,9 @@
 'use strict';
 
 export default class PuppyView {
-  constructor(puppy) {
+  constructor(puppy, application) {
     this.el = document.createElement(`div`);
+    this.application = application;
     this.puppy = puppy;
     this.render();
     this.listenForClick();
@@ -15,13 +16,14 @@ export default class PuppyView {
         name: this.el.querySelector(`.puppy-name`).value,
         age: this.el.querySelector(`.puppy-age`).value,
         photoUrl: this.el.querySelector(`.puppy-pic`).value,
-        profile: this.el.querySelector(`.puppy-info`).value,
+        profile: this.el.querySelector(`.puppy-profile`).value,
       };
 
-      fetch(`http://tiny-tn.herokuapp.com/collections/cb-puppies`, {
-        method: `POST`,
+      fetch(`http://tiny-tn.herokuapp.com/collections/cb-puppies/${this.puppy._id}`, {
+        method: `PUT`,
         headers: {
           Accept: `application/json`,
+          'Content-Type': `application/json`,
         },
         body: JSON.stringify(puppy) }).
         then(res => res.json()).
@@ -29,7 +31,7 @@ export default class PuppyView {
           this.el.querySelector(`.puppy-name`).value = ``;
           this.el.querySelector(`.puppy-age`).value = ``;
           this.el.querySelector(`.puppy-pic`).value = ``;
-          this.el.querySelector(`.puppy-info`).value = ``;
+          this.el.querySelector(`.puppy-profile`).value = ``;
           this.render(info);
         });
     });
@@ -54,7 +56,7 @@ export default class PuppyView {
   }
 
   render() {
-    this.el.classList.add(`.main-content`);
+    this.el.classList.add(`main-content`);
     this.el.innerHTML = `
       <div class="profile-image">
         <img src="${this.puppy.photoUrl}">
@@ -75,11 +77,14 @@ export default class PuppyView {
         </li>
         <li class="puppy-card-info">
           <h4 class="puppy-info">Profile</h4>
-          <input class="puppy-profile" placeholder="${this.puppy.profile}">
+          <h4>${this.puppy.profile}</h4>
+          <input class="puppy-profile">
         </li>
-        </ul>
+      <div class="button-container">
         <button class="delete">Delete</button>
         <button class="update">Update</button>
+      </div>
+      </ul>
       </div>
       `;
   }

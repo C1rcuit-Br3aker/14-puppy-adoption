@@ -17,6 +17,7 @@ export default class CreateFormView {
         method: `POST`,
         headers: {
           Accept: `application/json`,
+          'Content-Type': `application/json`,
         },
         body: JSON.stringify(formData),
       }).then(res => res.json())
