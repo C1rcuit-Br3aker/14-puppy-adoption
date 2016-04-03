@@ -34,6 +34,7 @@ export default class PuppyView {
           this.el.querySelector(`.puppy-profile`).value = ``;
           this.render(info);
         });
+      this.render();
     });
 
     const deleteDog = this.el.querySelector(`.delete`);
@@ -53,6 +54,7 @@ export default class PuppyView {
     .then((data) => {
       this.application.remove(this.data);
     });
+    this.render();
   }
 
   render() {
@@ -65,15 +67,15 @@ export default class PuppyView {
         <ul class="card-info">
           <li class="puppy-card-info">
             <h4 class="puppy-info">Name</h4>
-            <input class="puppy-name" placeholder="${this.puppy.name}">
+            <input class="puppy-name" value="${this.puppy.name}">
           </li>
         <li class="puppy-card-info">
           <h4 class="puppy-info">Age</h4>
-          <input class="puppy-age" placeholder="${this.puppy.age}">
+          <input class="puppy-age" value="${this.puppy.age}">
         </li>
         <li class="puppy-card-info">
           <h4 class="puppy-info">Photo URL</h4>
-          <input class="puppy-pic" placeholder="${this.puppy.photoUrl}">
+          <input class="puppy-pic" value="${this.puppy.photoUrl}">
         </li>
         <li class="puppy-card-info">
           <h4 class="puppy-info">Profile</h4>

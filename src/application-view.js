@@ -16,7 +16,6 @@ export default class ApplicationView {
         const newPuppy = new PuppyView(mutt);
         const dogs = document.querySelector(`.card`);
         dogs.appendChild(newPuppy.el);
-        // this.render(dogs, mutt);
       });
     });
   }
@@ -31,6 +30,7 @@ export default class ApplicationView {
     this.data = this.data.fiter((item) => {
       return item._id !== something._id;
     });
+    this.render();
   }
 
   postDog() {

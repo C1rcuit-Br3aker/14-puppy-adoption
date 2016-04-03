@@ -28,6 +28,7 @@ export default class CreateFormView {
         document.querySelector(`.new-puppy-info`).value = ``;
 
         this.application.add(info);
+        this.application.render(info);
       });
     });
   }
