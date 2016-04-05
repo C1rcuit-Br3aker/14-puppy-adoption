@@ -61,20 +61,20 @@ export default class PuppyView {
       <div class="profile-card">
         <ul class="card-info">
           <li class="puppy-card-info">
-            <h4 class="puppy-info">Name</h4>
+            <p class="puppy-info">Name</p>
             <input class="puppy-name" value="${this.puppy.name}">
           </li>
         <li class="puppy-card-info">
-          <h4 class="puppy-info">Age</h4>
+          <p class="puppy-info">Age</p>
           <input class="puppy-age" value="${this.puppy.age}">
         </li>
         <li class="puppy-card-info">
-          <h4 class="puppy-info">Photo URL</h4>
+          <p class="puppy-info">Photo URL</p>
           <input class="puppy-pic" value="${this.puppy.photoUrl}">
         </li>
         <li class="puppy-card-info">
-          <h4 class="puppy-info">Profile</h4>
-          <h4>${this.puppy.profile}</h4>
+          <p class="puppy-info">Profile</p>
+          <p>${this.puppy.profile}</p>
           <input class="puppy-profile">
         </li>
       <div class="button-container">

@@ -1,4 +1,27 @@
 .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: $brand-grey;
   color: $brand-white;
+}
+
+.form-info {
+  width: $max-content-width;
+  margin: 0;
+  padding: 0;
+}
+
+.form-info-title {
+  margin-top: 0;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.form-input {
+  color: $brand-white;
+}
+
+.save {
+  margin: 1rem 0;
 }
