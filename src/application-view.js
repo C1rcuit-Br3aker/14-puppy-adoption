@@ -13,7 +13,7 @@ export default class ApplicationView {
   }
 
   add(something) {
-    this.data = [...this.data, something];
+    this.data = [something, ...this.data];
 
     this.render();
   }
