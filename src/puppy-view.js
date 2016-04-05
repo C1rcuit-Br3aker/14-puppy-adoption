@@ -5,6 +5,7 @@ export default class PuppyView {
     this.el = document.createElement(`div`);
     this.application = application;
     this.puppy = puppy;
+    this.createTemplate();
     this.render();
     this.listenForClick();
   }
@@ -25,15 +26,13 @@ export default class PuppyView {
           Accept: `application/json`,
           'Content-Type': `application/json`,
         },
-        body: JSON.stringify(puppy) }).
-        then((res) => res.json()).
-        then((info) => {
-          this.el.querySelector(`.puppy-name`).value = ``;
-          this.el.querySelector(`.puppy-age`).value = ``;
-          this.el.querySelector(`.puppy-pic`).value = ``;
-          this.el.querySelector(`.puppy-profile`).value = ``;
-          this.application.render(info);
-        });
+        body: JSON.stringify(puppy)
+      }).
+      then((res) => res.json()).
+      then((info) => {
+        Object.assign(this.puppy, info);
+        this.render();
+      });
     });
 
     const deleteDog = this.el.querySelector(`.delete`);
@@ -44,44 +43,50 @@ export default class PuppyView {
 
   removeDog() {
     fetch(`http://tiny-tn.herokuapp.com/collections/cb-puppies/${this.puppy._id}`, {
-      method: `delete`,
-    }).then(res => res.json())
-    .then(() => {
-      this.application.remove(this.puppy);
-    });
+        method: `delete`,
+      }).then(res => res.json())
+      .then(() => {
+        this.application.remove(this.puppy);
+      });
   }
 
-  render() {
+  createTemplate() {
     this.el.classList.add(`main-content`);
     this.el.innerHTML = `
       <div class="profile-image">
-        <img src="${this.puppy.photoUrl}">
+        <img class="pup-pic" src="">
       </div>
       <div class="profile-card">
         <ul class="card-info">
           <li class="puppy-card-info">
             <p class="puppy-info">Name</p>
-            <input class="puppy-name" value="${this.puppy.name}">
+            <input class="puppy-name" value="">
           </li>
-        <li class="puppy-card-info">
-          <p class="puppy-info">Age</p>
-          <input class="puppy-age" value="${this.puppy.age}">
-        </li>
-        <li class="puppy-card-info">
-          <p class="puppy-info">Photo URL</p>
-          <input class="puppy-pic" value="${this.puppy.photoUrl}">
-        </li>
-        <li class="puppy-card-info">
-          <p class="puppy-info">Profile</p>
-          <p>${this.puppy.profile}</p>
-          <input class="puppy-profile">
-        </li>
-      <div class="button-container">
-        <button class="delete">Delete</button>
-        <button class="update">Update</button>
-      </div>
-      </ul>
-      </div>
-      `;
+          <li class="puppy-card-info">
+            <p class="puppy-info">Age</p>
+            <input class="puppy-age" value="">
+          </li>
+          <li class="puppy-card-info">
+            <p class="puppy-info">Photo URL</p>
+            <input class="puppy-pic" value="">
+          </li>
+          <li class="puppy-card-info">
+            <p class="puppy-info">Profile</p>
+            <input class="puppy-profile" value = "">
+          </li>
+          <li class="button-container">
+            <button class="delete">Delete</button>
+            <button class="update">Update</button>
+          </li>
+        </ul>
+      </div>`;
+  }
+
+  render() {
+    this.el.querySelector(`.pup-pic`).setAttribute(`src`, this.puppy.photoUrl);
+    this.el.querySelector(`.puppy-name`).value = this.puppy.name;
+    this.el.querySelector(`.puppy-age`).value = this.puppy.age;
+    this.el.querySelector(`.puppy-pic`).value = this.puppy.photoUrl;
+    this.el.querySelector(`.puppy-profile`).value = this.puppy.profile;
   }
 }

@@ -32,7 +32,7 @@ export default class CreateFormView {
 
     this.drop = document.querySelector(`.dropdown-button`);
     this.drop.addEventListener(`click`, () => {
-      document.querySelector(`.form`).classList.toggle(`-active`);
+      document.querySelector(`.form`).classList.toggle(`--active`);
     });
   }
 }
