@@ -47,7 +47,6 @@ export default class PuppyView {
       method: `delete`,
     }).then(res => res.json())
     .then(() => {
-      debugger;
       this.application.remove(this.puppy);
     });
   }

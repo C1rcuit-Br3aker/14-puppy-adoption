@@ -5,7 +5,7 @@ export default class CreateFormView {
     this.data = data;
     this.application = application;
 
-    document.querySelector(`.save`).addEventListener(`click`, (ev) => {
+    document.querySelector(`.form`).addEventListener(`submit`, (ev) => {
       ev.preventDefault();
       const formData = {
         name: document.querySelector(`.new-puppy-name`).value,
