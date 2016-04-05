@@ -26,15 +26,14 @@ export default class PuppyView {
           'Content-Type': `application/json`,
         },
         body: JSON.stringify(puppy) }).
-        then(res => res.json()).
-        then(info => {
+        then((res) => res.json()).
+        then((info) => {
           this.el.querySelector(`.puppy-name`).value = ``;
           this.el.querySelector(`.puppy-age`).value = ``;
           this.el.querySelector(`.puppy-pic`).value = ``;
           this.el.querySelector(`.puppy-profile`).value = ``;
-          this.render(info);
+          this.application.render(info);
         });
-      this.render();
     });
 
     const deleteDog = this.el.querySelector(`.delete`);
@@ -46,15 +45,11 @@ export default class PuppyView {
   removeDog() {
     fetch(`http://tiny-tn.herokuapp.com/collections/cb-puppies/${this.puppy._id}`, {
       method: `delete`,
-      headers: {
-        Accept: `application/json`,
-        'Content-Type': `application/json`,
-      },
     }).then(res => res.json())
-    .then((data) => {
-      this.application.remove(this.data);
+    .then(() => {
+      debugger;
+      this.application.remove(this.puppy);
     });
-    this.render();
   }
 
   render() {

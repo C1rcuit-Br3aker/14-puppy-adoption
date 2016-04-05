@@ -26,9 +26,7 @@ export default class CreateFormView {
         document.querySelector(`.new-puppy-age`).value = ``;
         document.querySelector(`.new-puppy-pic`).value = ``;
         document.querySelector(`.new-puppy-info`).value = ``;
-
         this.application.add(info);
-        this.application.render(info);
       });
     });
   }

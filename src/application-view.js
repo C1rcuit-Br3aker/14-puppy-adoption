@@ -9,15 +9,7 @@ export default class ApplicationView {
     this.formView = document.querySelector(`.form`);
     this.postDog();
 
-    fetch(`http://tiny-tn.herokuapp.com/collections/cb-puppies`).
-    then((res) => res.json()).
-    then((info) => {
-      info.forEach((mutt) => {
-        const newPuppy = new PuppyView(mutt);
-        const dogs = document.querySelector(`.card`);
-        dogs.appendChild(newPuppy.el);
-      });
-    });
+    this.render();
   }
 
   add(something) {
@@ -27,7 +19,7 @@ export default class ApplicationView {
   }
 
   remove(something) {
-    this.data = this.data.fiter((item) => {
+    this.data = this.data.filter((item) => {
       return item._id !== something._id;
     });
     this.render();
@@ -39,7 +31,7 @@ export default class ApplicationView {
 
   render() {
     this.el.innerHTML = ``;
-    this.info.forEach((mutt) => {
+    this.data.forEach((mutt) => {
       const newPuppy = new PuppyView(mutt, this);
       this.el.appendChild(newPuppy.el);
     });
