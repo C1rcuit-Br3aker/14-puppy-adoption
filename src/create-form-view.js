@@ -22,6 +22,7 @@ export default class CreateFormView {
         body: JSON.stringify(formData),
       }).then(res => res.json())
       .then((info) => {
+        document.querySelector(`.form`).classList.toggle(`--active`);
         document.querySelector(`.new-puppy-name`).value = ``;
         document.querySelector(`.new-puppy-age`).value = ``;
         document.querySelector(`.new-puppy-pic`).value = ``;
