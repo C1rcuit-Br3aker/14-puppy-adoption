@@ -11,8 +11,10 @@ export default class PuppyView {
   }
 
   listenForClick() {
-    const update = this.el.querySelector(`.update`);
-    update.addEventListener(`click`, () => {
+    const update = this.el.querySelector(`.profile-card`);
+    update.addEventListener(`submit`, (ev) => {
+      ev.preventDefault();
+
       const puppy = {
         name: this.el.querySelector(`.puppy-name`).value,
         age: this.el.querySelector(`.puppy-age`).value,
@@ -36,7 +38,8 @@ export default class PuppyView {
     });
 
     const deleteDog = this.el.querySelector(`.delete`);
-    deleteDog.addEventListener(`click`, () => {
+    deleteDog.addEventListener(`click`, (ev) => {
+      ev.preventDefault();
       this.removeDog();
     });
   }
@@ -56,7 +59,7 @@ export default class PuppyView {
       <div class="profile-image">
         <img class="pup-pic" src="">
       </div>
-      <div class="profile-card">
+      <form class="profile-card">
         <ul class="card-info">
           <li class="puppy-card-info">
             <p class="puppy-info">Name</p>
@@ -74,12 +77,12 @@ export default class PuppyView {
             <p class="puppy-info">Profile</p>
             <input class="puppy-profile" value = "">
           </li>
-          <li class="button-container">
-            <button class="delete">Delete</button>
-            <button class="update">Update</button>
-          </li>
         </ul>
-      </div>`;
+        <div class="button-container">
+          <a class="btn delete">Delete</a>
+          <button class="btn update">Update</button>
+        </div>
+      </form>`;
   }
 
   render() {
