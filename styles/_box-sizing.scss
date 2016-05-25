@@ -1,5 +1,6 @@
 // apply a natural box layout model to all elements, but allowing components to change
 html {
+  font-family: sans-serif;
   box-sizing: border-box;
 }
 
@@ -10,4 +11,9 @@ html {
   &:after {
     box-sizing: inherit;
   }
+}
+
+body {
+  margin: 0;
+  font-weight: 500;
 }

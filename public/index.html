@@ -6,11 +6,43 @@
   <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-<h1>Puppies</h1>
+  <div class="top-nav">
+    <div class="top-nav-content">
+      <h1 class="form-title">Puppies</h1>
+      <button class="dropdown-button fa fa-plus-circle"></button>
+    </div>
+  </div>
+    <form class="form --active">
+      <ul class="form-info">
+        <p class="form-info-title">Add a new Puppy</p>
+        <li class="puppy-form-info">
+          <p>Puppy Name</p>
+          <input type="text" class="new-puppy-name form-input">
+        </li>
+        <li class="puppy-form-info">
+          <p>Age</p>
+          <input type="text" class="new-puppy-age form-input">
+        </li>
+        <li class="puppy-form-info">
+          <p>Profile URL</p>
+          <input type="text" class="new-puppy-pic form-input".
+        </li>
+        <li class="puppy-form-info">
+          <p>Profile</p>
+          <input type="text" class="new-puppy-info form-input">
+        </li>
+          <button class="save">Save</button>
+      </ul>
+    </form>
+  <div class="card">
+  </div>
+
   <script src="/vendor.js" charset="utf-8"></script>
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
+  const index = require(`index`);
+  index();
   </script>
 </body>
 </html>

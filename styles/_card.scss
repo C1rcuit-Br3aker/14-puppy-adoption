@@ -1,0 +1,27 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: $gutter;
+}
+
+.main-content {
+  display: flex;
+  width: $max-content-width;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: $card-color;
+  box-shadow: $brand-shadow;
+}
+
+.profile-card {
+  width: 35rem;
+  line-height: 0.5rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: $gutter * 2;
+  padding-left: $gutter * 2;
+}
